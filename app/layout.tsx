@@ -1,11 +1,54 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.witterlabs.de"),
+
   title: "Witter Labs – Next.js Landingpages & Stripe",
   description:
-    "Witter Labs – Entwicklung moderner, schneller Landingpages mit Next.js, React und Stripe-Integration.",
+    "Witter Labs – Entwicklung moderner, schneller Landingpages mit Next.js, React und Stripe-Integration. Performance, SEO und klare Konversionen für Solopreneure & kleine Businesses.",
+
+  // Favicon + Icons
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo-256.png",
+  },
+
+  // Canonical URL für SEO
+  alternates: {
+    canonical: "https://www.witterlabs.de",
+  },
+
+  // OpenGraph (WhatsApp, LinkedIn, Twitter, iMessage)
+  openGraph: {
+    title: "Witter Labs – Next.js Landingpages & Stripe",
+    description:
+      "Schnelle, moderne Landingpages für Solopreneure & kleine Unternehmen. Fokus auf Performance, SEO und klare Struktur.",
+    url: "https://www.witterlabs.de",
+    siteName: "Witter Labs",
+    images: [
+      {
+        url: "/logo-512.png",
+        width: 512,
+        height: 512,
+        alt: "Witter Labs Logo",
+      },
+    ],
+    locale: "de_DE",
+    type: "website",
+  },
+
+  // Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "Witter Labs – Next.js Landingpages & Stripe",
+    description:
+      "Moderne, schnelle Landingpages für Solopreneure & kleine Businesses – mit Next.js, React und Stripe-Integration.",
+    images: ["/logo-512.png"],
+  },
 };
 
 export default function RootLayout({
@@ -18,27 +61,7 @@ export default function RootLayout({
       <body className="bg-slate-950 text-slate-50 antialiased">
         <div className="min-h-screen flex flex-col">
           {/* Header */}
-          <header className="border-b border-slate-800">
-            <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-              <span className="font-semibold tracking-tight">
-                Witter<span className="text-sky-400"> Labs</span>
-              </span>
-              <nav className="flex gap-4 text-sm text-slate-300">
-                <a href="/#services" className="hover:text-sky-400">
-                  Services
-                </a>
-                <a href="/#tech" className="hover:text-sky-400">
-                  Tech-Stack
-                </a>
-                <a href="/#about" className="hover:text-sky-400">
-                  Über mich
-                </a>
-                <a href="/#contact" className="hover:text-sky-400">
-                  Kontakt
-                </a>
-              </nav>
-            </div>
-          </header>
+          <Header />
 
           {/* Content */}
           <main className="flex-1">{children}</main>
@@ -62,6 +85,25 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+
+        {/* Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Witter Labs",
+              url: "https://www.witterlabs.de",
+              description:
+                "Entwicklung schneller, moderner Landingpages mit Next.js, React und Stripe.",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "DE",
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );
