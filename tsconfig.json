@@ -14,22 +14,21 @@
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ],
     "paths": {
       "@/*": ["./*"]
     },
+    // WICHTIG: eigene Types + @types laden
     "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": [
     "next-env.d.ts",
+    "types/**/*.d.ts",      // <--- unsere nodemailer.d.ts
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
