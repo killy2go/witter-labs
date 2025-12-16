@@ -16,8 +16,8 @@ export default function ImpressumPage() {
         <div>
           <p className="font-semibold mb-1">Angaben gemäß § 5 TMG</p>
           <p>Florian Witter</p>
-          <p>[Straße + Hausnummer]</p>
-          <p>[PLZ + Ort]</p>
+          <p>Grüntalstr. 8</p>
+          <p>96465 Neustadt</p>
         </div>
 
         <div>
@@ -30,8 +30,8 @@ export default function ImpressumPage() {
             Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
           </p>
           <p>Florian Witter</p>
-          <p>[Straße + Hausnummer]</p>
-          <p>[PLZ + Ort]</p>
+          <p>Grüntalstr. 8</p>
+          <p>96465 Neustadt</p>
         </div>
       </div>
     </main>
