@@ -16,8 +16,8 @@ export default function DatenschutzPage() {
         <h2 className="text-xl font-semibold">1. Verantwortlicher</h2>
         <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
         <p>Florian Witter</p>
-        <p>[Straße + Hausnummer]</p>
-        <p>[PLZ + Ort]</p>
+        <p>Grüntalstr. 8</p>
+        <p>96465 Neustadt</p>
         <p className="mt-2">E-Mail: support@secret-prompts.io</p>
       </section>
 
