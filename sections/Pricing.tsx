@@ -1,52 +1,109 @@
 // sections/Pricing.tsx
 import { Section } from "@/components/Section";
+import { Reveal } from "@/components/Reveal";
 
-const items = [
+const includes = [
+  "Klare Ziel- & Offer-Definition",
+  "Conversion-orientierte Seitenstruktur",
+  "Next.js + Tailwind Build",
+  "Performance & Core Web Vitals",
+  "SEO Basics + Schema",
+  "Tracking / Analytics Setup",
+  "Deploy & Übergabe",
+];
+
+const fit = [
   {
-    title: "Landingpage-Entwicklung",
-    price: "ab 290–790 €",
-    text: "Komplette Landingpage mit 4–6 Sektionen, responsive Design und Deployment auf Vercel.",
+    title: "Passt gut, wenn…",
+    points: [
+      "du ein klares Ziel hast (Leads, Sales, Launch)",
+      "du Qualität & Performance willst",
+      "du schnell und strukturiert live gehen möchtest",
+    ],
   },
   {
-    title: "Stripe-Integration",
-    price: "ab 150–400 €",
-    text: "Anbindung von Stripe Checkout oder Zahlungsabwicklung für digitale Produkte oder Services.",
-  },
-  {
-    title: "Wartung & Updates",
-    price: "49–149 € / Monat",
-    text: "Kleine Änderungen, technische Pflege und Optimierungen nach dem Launch – optional buchbar.",
+    title: "Passt eher nicht, wenn…",
+    points: [
+      "du nur „irgendeine Webseite“ brauchst",
+      "der Preis das einzige Entscheidungskriterium ist",
+      "du ohne Ziel oder Ownership starten willst",
+    ],
   },
 ];
 
 export function Pricing() {
   return (
-    <Section>
-      <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-        Preisrahmen & Zusammenarbeit
-      </h2>
-      <p className="text-slate-300 text-sm md:text-base mb-8 max-w-2xl">
-        Jede Landingpage ist individuell – die meisten Projekte bewegen sich in
-        den folgenden Bereichen. Nach einer kurzen Anfrage kann ich dir ein
-        konkretes Angebot machen.
-      </p>
-
-      <div className="grid md:grid-cols-3 gap-5">
-        {items.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 flex flex-col gap-3"
-          >
-            <h3 className="text-sm md:text-base font-semibold">
-              {item.title}
-            </h3>
-            <p className="text-sm font-semibold text-sky-400">{item.price}</p>
-            <p className="text-xs md:text-sm text-slate-300 flex-1">
-              {item.text}
+    <Reveal>
+      <Section className="pt-16 md:pt-24">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-semibold">
+              Zusammenarbeit & Scope
+            </h2>
+            <p className="mt-3 text-slate-300 text-sm md:text-base max-w-2xl">
+              Jedes Projekt ist unterschiedlich. Statt fixer Paketpreise bekommst du
+              einen klaren Scope, ein festes Angebot – und keine Überraschungen.
             </p>
           </div>
-        ))}
-      </div>
-    </Section>
+
+          <div className="flex gap-3">
+            <a
+              href="/demo"
+              className="px-4 py-2 rounded-xl border border-slate-700 text-sm text-slate-200 hover:border-sky-400 hover:text-sky-200 transition"
+            >
+              Demo ansehen
+            </a>
+            <a
+              href="#contact"
+              className="px-4 py-2 rounded-xl bg-sky-500 text-sm font-medium text-slate-950 hover:bg-sky-400 transition"
+            >
+              Projekt anfragen
+            </a>
+          </div>
+        </div>
+
+        {/* Fit / No-Fit */}
+        <div className="mt-8 grid md:grid-cols-2 gap-4">
+          {fit.map((block) => (
+            <div
+              key={block.title}
+              className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5"
+            >
+              <h3 className="text-base font-semibold">{block.title}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                {block.points.map((p) => (
+                  <li key={p} className="flex gap-2">
+                    <span className="text-sky-400">•</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* What's included */}
+        <div className="mt-8 rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/60 to-transparent p-5">
+          <p className="text-sm text-slate-200 font-medium mb-3">
+            Immer enthalten
+          </p>
+          <div className="flex flex-wrap gap-2 text-xs text-slate-300">
+            {includes.map((item) => (
+              <span
+                key={item}
+                className="rounded-lg border border-slate-800 bg-slate-900/50 px-3 py-1"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <p className="mt-4 text-xs text-slate-400 max-w-xl">
+          Nach einer kurzen Abstimmung erhältst du ein fixes Angebot auf Basis des
+          Scopes – transparent und verbindlich.
+        </p>
+      </Section>
+    </Reveal>
   );
 }

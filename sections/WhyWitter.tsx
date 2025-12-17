@@ -1,49 +1,52 @@
 // sections/WhyWitter.tsx
 import { Section } from "@/components/Section";
+import { Reveal } from "@/components/Reveal";
 
 const points = [
   {
-    title: "Performance im Fokus",
-    text: "Lighthouse Scores von 95–100 sind Standard – keine langsamen, überladenen Seiten.",
+    title: "Performance, die man spürt",
+    text: "Schnelle Ladezeiten & Core Web Vitals als Standard – ideal für SEO und Paid Traffic.",
   },
   {
-    title: "Konversionsorientiert",
-    text: "Struktur, Texte und Layout sind auf dein Ziel ausgerichtet: Leads, Calls oder direkte Verkäufe.",
+    title: "Conversion statt Deko",
+    text: "Struktur, Copy-Flow und CTAs werden bewusst gebaut – damit Besucher handeln, nicht nur scrollen.",
   },
   {
-    title: "Moderner Tech-Stack",
-    text: "Next.js, React, Tailwind CSS, Stripe und Vercel – statt veralteter Baukastensysteme.",
+    title: "Payments & Tracking sauber integriert",
+    text: "Stripe, Events, Analytics – so kannst du messen, optimieren und Umsatz nicht im Nebel betreiben.",
   },
   {
-    title: "Schnelle, klare Zusammenarbeit",
-    text: "Kurze Wege, saubere Umsetzung, keine Agentur-Overhead. Du sprichst direkt mit dem Entwickler.",
+    title: "Direkt mit dem Entwickler",
+    text: "Kurze Wege, klare Kommunikation, schnelle Iterationen. Kein Agentur-Overhead.",
   },
 ];
 
 export function WhyWitter() {
   return (
-    <Section>
-      <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-        Warum Witter Labs?
-      </h2>
-      <p className="text-slate-300 text-sm md:text-base mb-8 max-w-2xl">
-        Keine Baukasten-Websites, sondern schlanke, gezielt aufgebaute
-        Landingpages, die technisch und inhaltlich überzeugen.
-      </p>
+    <Reveal>
+      <Section className="pt-16 md:pt-24">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Warum das funktioniert
+        </h2>
+        <p className="mt-3 text-slate-300 text-sm md:text-base max-w-2xl">
+          Du bekommst ein Setup, das nicht nur gut aussieht, sondern messbar
+          performt – technisch und inhaltlich.
+        </p>
 
-      <div className="grid md:grid-cols-2 gap-5">
-        {points.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5"
-          >
-            <h3 className="text-sm md:text-base font-semibold mb-2">
-              {item.title}
-            </h3>
-            <p className="text-xs md:text-sm text-slate-300">{item.text}</p>
-          </div>
-        ))}
-      </div>
-    </Section>
+        <div className="mt-8 grid md:grid-cols-2 gap-4">
+          {points.map((p) => (
+            <div
+              key={p.title}
+              className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 transition transform-gpu hover:border-sky-500/30 hover:bg-slate-900/70 hover:-translate-y-[1px]"
+            >
+              <h3 className="text-base font-semibold">{p.title}</h3>
+              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                {p.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+    </Reveal>
   );
 }
